@@ -33,11 +33,11 @@ public class BasketServiceImpl extends BaseService<Basket> implements BasketServ
     public Basket createBasket(long userId, long partsId, int quantity, double price) {
         Basket basket = new Basket();
         User user = (User) userDao.get(userId);
+        basket.setUserId(user);
         if (quantity < 1) {
             quantity = 1;
         }
         Parts parts = (Parts) partsDao.get(partsId);
-        basket.setUserId(user);
         basket.setPartId(parts);
         basket.setQuantity(quantity);
         basket.setCost(price * quantity);
@@ -47,8 +47,10 @@ public class BasketServiceImpl extends BaseService<Basket> implements BasketServ
     }
 
     @Override
-    public List<Basket> getByUserId(long userId) {
-        return basketDao.getByUserId(userId);
+    public List<Basket> getByUserId(Long id) {
+        User user = (User) userDao.get(id);
+        List<Basket> baskets = basketDao.getByUserId(user);
+        return baskets;
     }
 
     @Override

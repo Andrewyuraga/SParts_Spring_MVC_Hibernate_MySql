@@ -32,7 +32,7 @@ public class Parts {
     private String type;
     @Column(name = "PRICE", nullable = true)
     private Double price;
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "partId")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "partId", fetch = FetchType.EAGER)
     private List<Basket> baskets;
 
     public Parts(String producer, String image, String category, String name, String type, Double price) {

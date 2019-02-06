@@ -5,15 +5,16 @@
           xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <sec:authorize access="isAuthenticated()">
     <centre><h5><spring:message code="autobody.cabinet"/></h5></centre>
-    <h3><span class="text"><b><sec:authentication property="principal.username"/></b></span></h3>
-    <h3><span class="text"><b><spring:message code="user.email"/></b> ${user.login}</span></h3>
+    <h3><span class="text"><spring:message code="user.email"/><b><sec:authentication property="principal.username"/></b></span></h3>
+    <h3><span class="text"><b><spring:message code="user.email"/></b>${id}</span></h3>
     <h3><span class="text"><b><spring:message code="user.address"/></b> ${user.address}</span></h3>
-    <ul class="nav navbar-nav">
+    <center><ul class="nav navbar-nav">
         <c:url var="logout" value="/logout"/>
         <li class="active">
-            <a href="${logout}" id="logOutButton"><span class="glyphicon glyphicon-log-out"><jsp:text/></span> Log Out</a>
+            <a href="${logout}" id="logOutButton" style="color: #2e3a44; border-bottom: #6088ff; shape-image-threshold: initial"><span class="glyphicon glyphicon-log-out"><jsp:text/></span> Log Out</a>
         </li>
     </ul>
+    </center>
 </sec:authorize>
 
 

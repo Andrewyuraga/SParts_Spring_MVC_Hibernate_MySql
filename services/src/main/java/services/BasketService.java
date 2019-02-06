@@ -1,6 +1,7 @@
 package services;
 
 import pojos.Basket;
+import pojos.User;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public interface BasketService extends Service<Basket>{
     Basket createBasket(long userId, long partsId, int quantity, double price);
 
-    List<Basket> getByUserId(long userId);
+    List<Basket> getByUserId(Long id);
 
     List<Basket> getAll();
 }

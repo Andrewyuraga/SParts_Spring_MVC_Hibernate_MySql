@@ -61,14 +61,6 @@ public class HelloController {
         return "welcome";
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public String loginPage(ModelMap model) {
-//        fillModel(model);
-//        return "login";
-//    }
-
-    //Новое
-
     @RequestMapping(value = {"/login", ""}, method = RequestMethod.GET)
     public String loginPage(ModelMap model) {
         fillModel(model);
@@ -90,7 +82,6 @@ public class HelloController {
         }
         return "redirect:/login";
     }
-
     private String getPrincipal(){
         String login;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
