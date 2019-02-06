@@ -9,29 +9,33 @@
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:spring="http://www.springframework.org/tags"
           xmlns:c="http://java.sun.com/jsp/jstl/core"
-          version="2.0" xmlns:sec="http://www.springframework.org/security/tags">
+          version="2.0" xmlns:sec="http://www.springframework.org/security/tags"
+          xmlns:form="http://www.springframework.org/tags/form">
     <h5>Parts</h5>
     <c:forEach var="person1" items="${parts}" varStatus="status">
         <li class="product-wrapper">
 
-        <div class="product-item">
+            <div class="product-item">
 
-        <img src="${person1.image}"/>
-            <div class="product-list">
-                <h3><b>${person1.producer}</b></h3>
-                <h3>${person1.name}</h3>
-                <input class="price" name="price" value="${person1.price}" readonly="readonly"/>
-                <input class="price" value="$" readonly="readonly"/>
-                <sec:authorize access="isAuthenticated()">
-                <input type="number"
-                       min="0"
-                       max="10"
-                       step="1"
-                       value="1" name="quantity" id="quantity"/><br/>
-                <input class="button" type="submit" value="Create"/>
-                </sec:authorize>
+                <img src="${person1.image}"/>
+                <div class="product-list">
+                    <h3><b>${person1.producer}</b></h3>
+                    <h3>${person1.name}</h3>
+                    <form action="/web/addBasket" method="post">
+                        <input class="id" name="id" value="${person1.id}" readonly="readonly"/>
+                        <input class="price" name="price" value="${person1.price}" readonly="readonly"/>
+                        <input class="price" value="$" readonly="readonly"/>
+                        <sec:authorize access="isAuthenticated()">
+                            <input type="number"
+                                   min="0"
+                                   max="10"
+                                   step="1"
+                                   value="1" name="quantity" id="quantity"/><br/>
+                            <input class="button" type="submit" value="Create"/>
+                        </sec:authorize>
+                    </form>
+                </div>
             </div>
-        </div>
         </li>
     </c:forEach>
 </jsp:root>

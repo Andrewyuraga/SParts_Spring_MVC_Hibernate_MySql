@@ -16,15 +16,15 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ORDERS")
+@Table(name = "BASKET")
 @DynamicInsert
 @DynamicUpdate
-public class Order {
+public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ORDER_ID", unique = true)
+    @Column(name = "BASKET_ID", unique = true)
     private Long id;
-    @Column(name = "ORDER_DATE")
+    @Column(name = "BASKET_DATE")
     @Temporal(TemporalType.DATE)
     private Date date;
     @ManyToOne
@@ -35,16 +35,16 @@ public class Order {
     private Parts partId;
     @Column(name = "QUANTITY", columnDefinition = "INT default 1")
     private Integer quantity;
-    @Column(name = "TOTAL", nullable = true)
-    private Double total;
+    @Column(name = "COST", nullable = true)
+    private Double cost;
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Basket{" +
                 "id=" + id +
                 ", date=" + date +
                 ", quantity=" + quantity +
-                ", total=" + total +
+                ", cost=" + cost +
                 '}';
     }
 }

@@ -906,7 +906,7 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="235" parent="8" name="T_ORDERS"/>
+    <table id="235" parent="8" name="T_BASKET"/>
     <table id="236" parent="8" name="T_PART"/>
     <table id="237" parent="8" name="T_REVIEW"/>
     <table id="238" parent="8" name="T_USER"/>
@@ -916,27 +916,27 @@
     <table id="242" parent="9" name="T_USER"/>
     <table id="243" parent="9" name="T_USERROLE"/>
     <table id="244" parent="9" name="T_USER_PROFILE"/>
-    <column id="245" parent="235" name="C_ORDER_ID">
+    <column id="245" parent="235" name="C_BASKET_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="235" name="C_ORDER_DATE">
+    <column id="246" parent="235" name="C_COST">
       <Position>2</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="247" parent="235" name="C_BASKET_DATE">
+      <Position>3</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="235" name="C_QUANTITY">
-      <Position>3</Position>
+    <column id="248" parent="235" name="C_QUANTITY">
+      <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="248" parent="235" name="C_TOTAL">
-      <Position>4</Position>
-      <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="249" parent="235" name="C_PART_ID">
@@ -949,375 +949,355 @@
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="251" parent="235" name="PART_ID_FK">
-      <ColNames>C_PART_ID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="252" parent="235" name="USER_ID_FK">
-      <ColNames>C_USER_ID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="253" parent="235" name="PRIMARY">
+    <key id="251" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>C_ORDER_ID</ColNames>
+      <ColNames>C_BASKET_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="254" parent="235" name="PART_ID_FK">
-      <ColNames>C_PART_ID</ColNames>
-      <RefSchemaName>sparts</RefSchemaName>
-      <RefTableName>T_PART</RefTableName>
-      <RefColNames>C_PART_ID</RefColNames>
-    </foreign-key>
-    <foreign-key id="255" parent="235" name="USER_ID_FK">
-      <ColNames>C_USER_ID</ColNames>
-      <RefSchemaName>sparts</RefSchemaName>
-      <RefTableName>T_USER</RefTableName>
-      <RefColNames>C_USER_ID</RefColNames>
-    </foreign-key>
-    <column id="256" parent="236" name="C_PART_ID">
+    <column id="252" parent="236" name="C_PART_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="236" name="C_CATEGORY">
+    <column id="253" parent="236" name="C_CATEGORY">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="236" name="C_IMAGE">
+    <column id="254" parent="236" name="C_IMAGE">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="236" name="C_NAME">
+    <column id="255" parent="236" name="C_NAME">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="236" name="C_PRICE">
+    <column id="256" parent="236" name="C_PRICE">
       <Position>5</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="236" name="C_PRODUCER">
+    <column id="257" parent="236" name="C_PRODUCER">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="236" name="C_TYPE">
+    <column id="258" parent="236" name="C_TYPE">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="263" parent="236" name="PRIMARY">
+    <key id="259" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_PART_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="264" parent="237" name="C_ID">
+    <column id="260" parent="237" name="C_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="237" name="C_REVIEW">
+    <column id="261" parent="237" name="C_REVIEW">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="237" name="C_USER_ID">
+    <column id="262" parent="237" name="C_USER_ID">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="267" parent="237" name="PRIMARY">
+    <key id="263" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="268" parent="238" name="C_USER_ID">
+    <column id="264" parent="238" name="C_USER_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="238" name="C_ADDRESS">
+    <column id="265" parent="238" name="C_ADDRESS">
       <Position>2</Position>
       <DataType>varchar(190)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="238" name="C_LOGIN">
+    <column id="266" parent="238" name="C_LOGIN">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="238" name="C_PASSWORD">
+    <column id="267" parent="238" name="C_PASSWORD">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="238" name="C_USER_RIGHTS">
+    <column id="268" parent="238" name="C_USER_RIGHTS">
       <Position>5</Position>
       <DataType>char(6)|0s</DataType>
       <DefaultExpression>&apos;USER&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="238" name="C_STATE">
+    <column id="269" parent="238" name="C_STATE">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="274" parent="238" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
+    <index id="270" parent="238" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
       <ColNames>C_LOGIN</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="275" parent="238" name="PRIMARY">
+    <key id="271" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_USER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="276" parent="238" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
+    <key id="272" parent="238" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
       <ColNames>C_LOGIN</ColNames>
       <UnderlyingIndexName>UK_3kwiul3bb7jjex8c7dxaoyeel</UnderlyingIndexName>
     </key>
-    <column id="277" parent="239" name="C_ORDER_ID">
+    <column id="273" parent="239" name="C_ORDER_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="239" name="C_ORDER_DATE">
+    <column id="274" parent="239" name="C_ORDER_DATE">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="239" name="C_QUANTITY">
+    <column id="275" parent="239" name="C_QUANTITY">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="239" name="C_TOTAL">
+    <column id="276" parent="239" name="C_TOTAL">
       <Position>4</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="239" name="C_PART_ID">
+    <column id="277" parent="239" name="C_PART_ID">
       <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="239" name="C_USER_ID">
+    <column id="278" parent="239" name="C_USER_ID">
       <Position>6</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="283" parent="239" name="PART_ID_FK">
+    <index id="279" parent="239" name="PART_ID_FK">
       <ColNames>C_PART_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="284" parent="239" name="USER_ID_FK">
+    <index id="280" parent="239" name="USER_ID_FK">
       <ColNames>C_USER_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="285" parent="239" name="PRIMARY">
+    <key id="281" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_ORDER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="286" parent="239" name="PART_ID_FK">
+    <foreign-key id="282" parent="239" name="PART_ID_FK">
       <ColNames>C_PART_ID</ColNames>
       <RefSchemaName>sparts_test</RefSchemaName>
       <RefTableName>T_PART</RefTableName>
       <RefColNames>C_PART_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="287" parent="239" name="USER_ID_FK">
+    <foreign-key id="283" parent="239" name="USER_ID_FK">
       <ColNames>C_USER_ID</ColNames>
       <RefSchemaName>sparts_test</RefSchemaName>
       <RefTableName>T_USER</RefTableName>
       <RefColNames>C_USER_ID</RefColNames>
     </foreign-key>
-    <column id="288" parent="240" name="C_PART_ID">
+    <column id="284" parent="240" name="C_PART_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="240" name="C_CATEGORY">
+    <column id="285" parent="240" name="C_CATEGORY">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="240" name="C_IMAGE">
+    <column id="286" parent="240" name="C_IMAGE">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="240" name="C_NAME">
+    <column id="287" parent="240" name="C_NAME">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="240" name="C_PRICE">
+    <column id="288" parent="240" name="C_PRICE">
       <Position>5</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="240" name="C_PRODUCER">
+    <column id="289" parent="240" name="C_PRODUCER">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="240" name="C_TYPE">
+    <column id="290" parent="240" name="C_TYPE">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="295" parent="240" name="PRIMARY">
+    <key id="291" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_PART_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="296" parent="241" name="C_ID">
+    <column id="292" parent="241" name="C_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="241" name="C_REVIEW">
+    <column id="293" parent="241" name="C_REVIEW">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="241" name="C_USER_ID">
+    <column id="294" parent="241" name="C_USER_ID">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="299" parent="241" name="PRIMARY">
+    <key id="295" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="300" parent="242" name="C_USER_ID">
+    <column id="296" parent="242" name="C_USER_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="242" name="C_ADDRESS">
+    <column id="297" parent="242" name="C_ADDRESS">
       <Position>2</Position>
       <DataType>varchar(190)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="242" name="C_LOGIN">
+    <column id="298" parent="242" name="C_LOGIN">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="242" name="C_PASSWORD">
+    <column id="299" parent="242" name="C_PASSWORD">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="242" name="C_USER_RIGHTS">
+    <column id="300" parent="242" name="C_USER_RIGHTS">
       <Position>5</Position>
       <DataType>char(6)|0s</DataType>
       <DefaultExpression>&apos;USER&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="242" name="C_USER_STATUS">
+    <column id="301" parent="242" name="C_USER_STATUS">
       <Position>6</Position>
       <DataType>char(10)|0s</DataType>
       <DefaultExpression>&apos;ACTIVE&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="242" name="C_STATE">
+    <column id="302" parent="242" name="C_STATE">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="307" parent="242" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
+    <index id="303" parent="242" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
       <ColNames>C_LOGIN</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="308" parent="242" name="PRIMARY">
+    <key id="304" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_USER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="309" parent="242" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
+    <key id="305" parent="242" name="UK_3kwiul3bb7jjex8c7dxaoyeel">
       <ColNames>C_LOGIN</ColNames>
       <UnderlyingIndexName>UK_3kwiul3bb7jjex8c7dxaoyeel</UnderlyingIndexName>
     </key>
-    <column id="310" parent="243" name="C_ID">
+    <column id="306" parent="243" name="C_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="243" name="C_TYPE">
+    <column id="307" parent="243" name="C_TYPE">
       <Position>2</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="312" parent="243" name="UK_d5viioeqcdv2bb9isjdcsph8c">
+    <index id="308" parent="243" name="UK_d5viioeqcdv2bb9isjdcsph8c">
       <ColNames>C_TYPE</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="313" parent="243" name="PRIMARY">
+    <key id="309" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="314" parent="243" name="UK_d5viioeqcdv2bb9isjdcsph8c">
+    <key id="310" parent="243" name="UK_d5viioeqcdv2bb9isjdcsph8c">
       <ColNames>C_TYPE</ColNames>
       <UnderlyingIndexName>UK_d5viioeqcdv2bb9isjdcsph8c</UnderlyingIndexName>
     </key>
-    <column id="315" parent="244" name="C_USER_ID">
+    <column id="311" parent="244" name="C_USER_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="244" name="C_USER_PROFILE_ID">
+    <column id="312" parent="244" name="C_USER_PROFILE_ID">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="317" parent="244" name="FKmny8ye2ou67wydunpn9k6035">
+    <index id="313" parent="244" name="FKmny8ye2ou67wydunpn9k6035">
       <ColNames>C_USER_PROFILE_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="318" parent="244" name="PRIMARY">
+    <key id="314" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>C_USER_ID
 C_USER_PROFILE_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="319" parent="244" name="FKkeyl3cuqni2o4xxv27k7p0div">
+    <foreign-key id="315" parent="244" name="FKkeyl3cuqni2o4xxv27k7p0div">
       <ColNames>C_USER_ID</ColNames>
       <RefSchemaName>sparts_test</RefSchemaName>
       <RefTableName>T_USER</RefTableName>
       <RefColNames>C_USER_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="320" parent="244" name="FKmny8ye2ou67wydunpn9k6035">
+    <foreign-key id="316" parent="244" name="FKmny8ye2ou67wydunpn9k6035">
       <ColNames>C_USER_PROFILE_ID</ColNames>
       <RefSchemaName>sparts_test</RefSchemaName>
       <RefTableName>T_USERROLE</RefTableName>

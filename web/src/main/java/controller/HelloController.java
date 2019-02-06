@@ -41,8 +41,6 @@ public class HelloController {
 
     private void fillModel(ModelMap model) {
         List<Parts> parts = partsService.getAll();
-        Parts part = new Parts("dfdsfs", "dfdfs", "fdfdsd", "fdfd", "ffdf", 10.2);
-        parts.add(part);
         model.put("parts", parts);
     }
 

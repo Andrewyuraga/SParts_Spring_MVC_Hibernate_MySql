@@ -33,7 +33,7 @@ public class Parts {
     @Column(name = "PRICE", nullable = true)
     private Double price;
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "partId")
-    private List<Order> orders;
+    private List<Basket> baskets;
 
     public Parts(String producer, String image, String category, String name, String type, Double price) {
         this.producer = producer;

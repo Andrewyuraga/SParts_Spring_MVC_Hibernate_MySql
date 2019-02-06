@@ -9,10 +9,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 /**
  * Class UserDao
@@ -38,18 +35,12 @@ public class User {
     private String password;
     @Column(name = "ADDRESS", nullable = true, length = 190)
     private String address;
-    //    @Column(name = "USER_STATUS", columnDefinition = "CHAR(10) default 'ACTIVE'")
-//    private String status;
     @Column(name = "USER_RIGHTS", columnDefinition = "CHAR(6) default 'USER'")
     private String right;
     @Column(nullable = false)
     private String state = State.ACTIVE.getState();
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "USER_PROFILE", joinColumns = {@JoinColumn(name = "USER_ID")},
-//            inverseJoinColumns = {@JoinColumn(name = "USER_PROFILE_ID")})
-//    private Set<UserRole> userRoles = new HashSet<UserRole>();
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "userId")
-    private List<Order> orders;
+    private List<Basket> baskets;
     @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE}, mappedBy = "userId")
     private List<Review> reviews;
 
