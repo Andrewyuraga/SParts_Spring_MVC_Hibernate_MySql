@@ -1,0 +1,19 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: andrewyuraga
+  Date: 2019-02-05
+  Time: 12:08
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags">
+    <h5>Parts</h5>
+    <c:forEach var="person1" items="${reviews}" varStatus="status">
+        <div class="revw">
+            <h5><spring:message code="user.email"/> ${person1.userId.login}</h5><br/>
+            <h3><i>${person1.review}</i></h3>
+            <br/>
+        </div>
+        <br/>
+    </c:forEach>
+</jsp:root>

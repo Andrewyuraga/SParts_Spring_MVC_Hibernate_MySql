@@ -1,0 +1,36 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:form="http://www.springframework.org/tags/form"
+          xmlns:sec="http://www.springframework.org/security/tags"
+          xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<sec:authorize access="isAuthenticated()">
+    <centre><h5><spring:message code="autobody.cabinet"/></h5></centre>
+    <h3><span class="text"><b><sec:authentication property="principal.username"/></b></span></h3>
+    <h3><span class="text"><b><spring:message code="user.email"/></b> ${user.login}</span></h3>
+    <h3><span class="text"><b><spring:message code="user.address"/></b> ${user.address}</span></h3>
+    <ul class="nav navbar-nav">
+        <c:url var="logout" value="/logout"/>
+        <li class="active">
+            <a href="${logout}" id="logOutButton"><span class="glyphicon glyphicon-log-out"><jsp:text/></span> Log Out</a>
+        </li>
+    </ul>
+</sec:authorize>
+
+
+<sec:authorize access="isAnonymous()">
+    <center><h5><spring:message code="register.namePage"/></h5></center>
+    <br/>
+    <form id="form_input" method="post" class="signin" action="/web/addUser">
+            <div>
+                <spring:message code="register.email"/><br/>
+                <input type="text" placeholder="login" name="login" id="login"
+                       pattern="/\A[^@]+@([^@\.]+\.)+[^@\.]+\z/"/><br/>
+                <spring:message code="register.password"/><br/>
+                <input type="password" placeholder="password" name="password" id="password" required="required"/><br/>
+                <spring:message code="register.address"/><br/>
+                <input type="text" placeholder="address" name="address" id="address" required="required"/><br/>
+                <input type="submit" value="Submit"/>
+            </div>
+    </form>
+</sec:authorize>
+</jsp:root>

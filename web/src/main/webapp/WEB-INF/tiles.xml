@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="default" template="/WEB-INF/view/layouts/default.jspx">
+        <put-attribute name="header" value="/WEB-INF/view/layouts/default.jspx"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="data" value=""/>
+    </definition>
+
+    <definition name="welcome" extends="default">
+        <put-attribute name="title" value="Welcome user"/>
+        <put-attribute name="body" value="/WEB-INF/view/products/parts.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+    <definition name="login" extends="default">
+        <put-attribute name="title" value="Login"/>
+        <put-attribute name="body" value="/WEB-INF/view/auth/login.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+    <definition name="review" extends="default">
+        <put-attribute name="title" value="Reviews"/>
+        <put-attribute name="body" value="/WEB-INF/view/reviews/reviews.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+
+</tiles-definitions>
+
