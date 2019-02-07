@@ -12,6 +12,9 @@
           xmlns:spring="http://www.springframework.org/tags"
           version="2.0">
     <center><h5><spring:message code="email.title"/></h5></center>
+    <br/><center>
+    <a href="${request.getContextPath()}?locale=EN">EN</a>
+    <a href="${request.getContextPath()}?locale=ru">RU</a></center>
     <br/>
     <form id="form_input" method="post" class="signin" action="/web/login">
         <div>
@@ -23,5 +26,6 @@
             <input type="submit" value="Submit"/>
         </div>
     </form>
+    <br/>
 </jsp:root>
 

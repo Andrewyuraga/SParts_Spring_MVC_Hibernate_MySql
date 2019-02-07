@@ -129,6 +129,10 @@
         <ul class="menu">
             <li><a href="${pageContext.request.contextPath}/"><spring:message code="autobody.title"/></a></li>
             <li><a href="${pageContext.request.contextPath}/reviews"><spring:message code="reviews.title"/></a></li>
+            <sec:authorize access="hasAnyRole('ADMIN')">
+            <li><a href="${pageContext.request.contextPath}/allBaskets">Baskets</a></li>
+                <li><a href="${pageContext.request.contextPath}/addProduct">Add</a></li>
+            </sec:authorize>
             <sec:authorize access="isAuthenticated()">
                 <li><a href="${pageContext.request.contextPath}/baskets"><spring:message code="ord.title"/></a></li>
             </sec:authorize>

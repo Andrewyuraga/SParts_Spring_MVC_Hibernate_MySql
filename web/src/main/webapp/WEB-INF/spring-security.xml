@@ -7,7 +7,7 @@
     <http auto-config="false">
         <intercept-url pattern="/" access="permitAll"/>
         <intercept-url pattern="/addUser**" access="permitAll()"/>
-        <intercept-url pattern="/admin**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/allBaskets/**" access="hasRole('ADMIN')"/>
         <form-login login-page="/web/login"
                     username-parameter="login"
                     password-parameter="password"

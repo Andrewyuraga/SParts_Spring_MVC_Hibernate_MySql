@@ -33,6 +33,18 @@
         <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
     </definition>
 
+    <definition name="allBaskets" extends="default">
+        <put-attribute name="title" value="Baskets"/>
+        <put-attribute name="body" value="/WEB-INF/view/basket/allBaskets.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+    <definition name="addProduct" extends="default">
+        <put-attribute name="title" value="Add Parts"/>
+        <put-attribute name="body" value="/WEB-INF/view/products/addProduct.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
 
 </tiles-definitions>
 
