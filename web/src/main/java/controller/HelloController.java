@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import pojos.Parts;
 import pojos.User;
 import services.PartsService;
@@ -71,7 +72,7 @@ public class HelloController {
     public String accessDeniedPage(ModelMap model) {
         fillModel(model);
         model.addAttribute("user", getPrincipal());
-        return "welcome";
+        return "errorPassword";
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
@@ -94,4 +95,13 @@ public class HelloController {
         return login;
     }
 
+    @org.springframework.web.bind.annotation.ExceptionHandler
+    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        System.out.println("Spring MVC Handler");
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("exception", ex);
+        mav.addObject("url", request.getRequestURL());
+        mav.setViewName("error");
+        return mav;
+    }
 }

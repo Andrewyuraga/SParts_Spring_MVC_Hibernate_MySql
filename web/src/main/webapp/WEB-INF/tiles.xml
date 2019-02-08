@@ -45,6 +45,23 @@
         <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
     </definition>
 
+    <definition name="users" extends="default">
+        <put-attribute name="title" value="Add Parts"/>
+        <put-attribute name="body" value="/WEB-INF/view/users/allUsers.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+    <definition name="error" extends="default">
+        <put-attribute name="title" value="Add Parts"/>
+        <put-attribute name="body" value="/WEB-INF/view/errorPage/errorPage.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+    <definition name="errorPassword" extends="default">
+        <put-attribute name="title" value="Error"/>
+        <put-attribute name="body" value="/WEB-INF/view/errorPage/errorLoginOrPassword.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
 
 </tiles-definitions>
 

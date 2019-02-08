@@ -6,7 +6,7 @@
 <sec:authorize access="isAuthenticated()">
     <centre><h5><spring:message code="autobody.cabinet"/></h5></centre>
     <h3><span class="text"><spring:message code="user.email"/><b><sec:authentication property="principal.username"/></b></span></h3>
-    <h3><span class="text"><b><spring:message code="user.email"/></b>${id}</span></h3>
+    <h3><span class="text"><b><spring:message code="user.email"/></b>${user.id}</span></h3>
     <h3><span class="text"><b><spring:message code="user.address"/></b> ${user.address}</span></h3>
     <center><ul class="nav navbar-nav">
         <c:url var="logout" value="/logout"/>
