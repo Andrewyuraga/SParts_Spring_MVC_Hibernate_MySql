@@ -1,0 +1,13 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: andrewyuraga
+  Date: 2019-02-08
+  Time: 01:43
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <div class="col-lg-12">
+        <p>This is message from ExceptionHandler:</p>
+        <b>${exceptionMsg}</b>
+    </div>
+</jsp:root>

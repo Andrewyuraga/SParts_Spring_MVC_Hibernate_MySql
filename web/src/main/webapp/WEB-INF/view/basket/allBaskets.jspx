@@ -1,0 +1,41 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: andrewyuraga
+  Date: 2019-02-07
+  Time: 00:55
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <center><h5><spring:message code="ord.title"/></h5></center>
+    <center>
+        <table>
+            <tr>
+                <th><spring:message code="ord.id"/></th>
+                <th><spring:message code="ord.partsid"/></th>
+                <th><spring:message code="ord.partsid"/></th>
+                <th><spring:message code="user.email"/></th>
+                <th><spring:message code="ord.quantity"/></th>
+                <th><spring:message code="ord.totalsum"/></th>
+                <th><spring:message code="ord.delete"/></th>
+            </tr>
+            <c:forEach var="person1" items="${baskets}" varStatus="status">
+                <tr>
+                    <td>${person1.id}</td>
+                    <td>${person1.partId.id}</td>
+                    <td>${person1.partId.name}</td>
+                    <td>${person1.userId.login}</td>
+                    <td>${person1.quantity}</td>
+                    <td>${person1.cost}</td>
+                    <td><form action="/web/deleteParts" method="post">
+                        <button value="${person1.id}" name="id" class="btn"><spring:message code="parts.delete"/></button>
+                    </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <br/><br/>
+    </center>
+</jsp:root>
+

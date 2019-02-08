@@ -1,0 +1,29 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: andrewyuraga
+  Date: 2019-02-07
+  Time: 17:33
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:spring="http://www.springframework.org/tags">
+    <center><h5><spring:message code="partsadd.namePage"/></h5></center>
+    <br/>
+    <form id="form_input" method="post" class="signin" action="/web/addParts">
+        <div>
+            <spring:message code="partsadd.producer"/><br/>
+            <input type="text" placeholder="producer" name="producer" id="producer" required="required"/><br/>
+            <spring:message code="partsadd.img"/><br/>
+            <input type="text" placeholder="image" name="image" id="image" required="required"/><br/>
+            <spring:message code="partsadd.category"/><br/>
+            <input type="text" placeholder="category" name="category" id="category" required="required"/><br/>
+            <spring:message code="partsadd.name"/><br/>
+            <input type="text" placeholder="name" name="name" id="name" required="required"/><br/>
+            <spring:message code="partsadd.category"/><br/>
+            <input type="text" placeholder="type" name="type" id="type" required="required"/><br/>
+            <spring:message code="partsadd.price"/><br/>
+            <input type="text" placeholder="price" name="price" id="price" required="required"/><br/>
+            <input type="submit" value="Submit"/>
+        </div>
+    </form>
+</jsp:root>
