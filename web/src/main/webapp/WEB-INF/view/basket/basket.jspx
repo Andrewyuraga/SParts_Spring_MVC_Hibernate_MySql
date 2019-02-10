@@ -35,4 +35,8 @@
     </table>
     <br/><br/>
 </center>
+<center><form action="/web/createOrder" method="post">
+    <button value="user.id" name="id" class="btn"><spring:message code="ord.create"/></button>
+</form></center>
+
 </jsp:root>

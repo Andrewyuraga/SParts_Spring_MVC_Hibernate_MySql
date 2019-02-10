@@ -2,6 +2,7 @@ package dao.impl;
 
 import dao.PartsDao;
 import org.springframework.stereotype.Repository;
+import pojos.Order;
 import pojos.Parts;
 
 import javax.persistence.criteria.CriteriaBuilder;

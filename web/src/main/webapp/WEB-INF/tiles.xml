@@ -51,8 +51,20 @@
         <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
     </definition>
 
+    <definition name="orders" extends="default">
+        <put-attribute name="title" value="Orders"/>
+        <put-attribute name="body" value="/WEB-INF/view/orders/orders.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
+    <definition name="allOrders" extends="default">
+        <put-attribute name="title" value="All orders"/>
+        <put-attribute name="body" value="/WEB-INF/view/orders/allOrders.jspx"/>
+        <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
+    </definition>
+
     <definition name="error" extends="default">
-        <put-attribute name="title" value="Add Parts"/>
+        <put-attribute name="title" value="Error"/>
         <put-attribute name="body" value="/WEB-INF/view/errorPage/errorPage.jspx"/>
         <put-attribute name="data" value="/WEB-INF/view/registration/registration.jspx"/>
     </definition>

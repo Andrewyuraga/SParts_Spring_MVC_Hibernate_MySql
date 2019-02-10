@@ -1,5 +1,6 @@
 package pojos;
 
+import enums.Condition;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ public class Basket {
     private Parts partId;
     @Column(name = "QUANTITY", columnDefinition = "INT default 1")
     private Integer quantity;
+    private String condition = Condition.ACTIVE.getCondition();
     @Column(name = "COST", nullable = true)
     private Double cost;
 

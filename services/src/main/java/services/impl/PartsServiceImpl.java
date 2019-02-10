@@ -39,4 +39,6 @@ public class PartsServiceImpl extends BaseService<Parts> implements PartsService
     public List<Parts> getAll() {
             return partsDao.getAll();
     }
+
+
 }

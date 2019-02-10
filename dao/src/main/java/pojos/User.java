@@ -9,6 +9,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 /**
@@ -30,6 +31,7 @@ public class User {
     @Column(name = "USER_ID", unique = true)
     private Long id;
     @Column(name = "LOGIN", unique = true, nullable = true, length = 50)
+    @Pattern(regexp = "^[A-Z]+[a-z]+$", message = "Login must be alphanumeric with no spaces and first capital")
     private String login;
     @Column(name = "PASSWORD", nullable = true)
     private String password;
@@ -43,6 +45,8 @@ public class User {
     private List<Basket> baskets;
     @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE}, mappedBy = "userId")
     private List<Review> reviews;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "userId")
+    private List<Order> orders;
 
     public User(String login, String password, String address) {
         this.login = login;

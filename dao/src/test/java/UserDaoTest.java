@@ -1,4 +1,6 @@
 import dao.UserDao;
+import dao.impl.OrderDaoImpl;
+import dao.impl.PartsDaoImpl;
 import dao.impl.UserDaoImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +10,11 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import pojos.Order;
+import pojos.Parts;
 import pojos.User;
+
+import java.util.List;
 
 /**
  * Created by Yuraga

@@ -54,6 +54,13 @@ public class BasketServiceImpl extends BaseService<Basket> implements BasketServ
     }
 
     @Override
+    public Double basketSum(Long id) {
+        User user = (User) userDao.get(id);
+        Double sum = basketDao.basketSum(user);
+        return sum;
+    }
+
+    @Override
     public List<Basket> getAll() {
         return basketDao.getAll();
     }

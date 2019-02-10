@@ -5,9 +5,11 @@
   Time: 01:43
   To change this template use File | Settings | File Templates.
 -->
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:spring="http://www.springframework.org/tags">
     <div class="col-lg-12">
         <p>This is message from ExceptionHandler:</p>
-        <b>${exceptionMsg}</b>
+        <center><img src="${pageContext.request.contextPath}/assests/img/404-page-04.png" alt="Error" style="height: 500px"/></center>
+        <center><a href="/web/login"><spring:message code="user.email"/></a></center><br/>
     </div>
 </jsp:root>

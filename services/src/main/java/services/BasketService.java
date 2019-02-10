@@ -17,4 +17,6 @@ public interface BasketService extends Service<Basket>{
     List<Basket> getByUserId(Long id);
 
     List<Basket> getAll();
+
+    Double basketSum(Long id);
 }

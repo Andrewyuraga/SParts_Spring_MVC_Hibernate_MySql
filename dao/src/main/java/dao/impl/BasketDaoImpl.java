@@ -1,8 +1,10 @@
 package dao.impl;
 
 import dao.BasketDao;
+import enums.Condition;
 import org.springframework.stereotype.Repository;
 import pojos.Basket;
+import pojos.Order;
 import pojos.User;
 
 import javax.persistence.Query;
@@ -23,15 +25,18 @@ public class BasketDaoImpl extends BaseDao<Basket> implements BasketDao<Basket> 
     }
 
     public List<Basket> getByUserId(User user) {
-//        CriteriaBuilder cb = this.getEm().getCriteriaBuilder();
-//        CriteriaQuery<Basket> criteria = cb.createQuery(Basket.class);
-//        Root<Basket> orderRoot = criteria.from(Basket.class);
-//        criteria.select(orderRoot).where(cb.equal(orderRoot.get("id"), id));
-//        return this.getEm().createQuery(criteria).getResultList();
-        Query query = this.getEm().createQuery("from Basket b where b.userId= :userId");
-        query.setParameter("userId", user);
+        Query query = this.getEm().createQuery("from Basket b where b.userId= :userId and b.condition= :condition")
+                .setParameter("userId", user)
+                .setParameter("condition", "Active");
         return query.getResultList();
     }
 
-
+    public Double basketSum(User user) {
+        Query query = this.getEm().createQuery("select sum(b.cost) from Basket b where b.userId= :userId " +
+                "and b.condition= :condition")
+                .setParameter("userId", user)
+                .setParameter("condition", "Active");
+        Double sum = (Double) query.getSingleResult();
+        return sum;
+    }
 }

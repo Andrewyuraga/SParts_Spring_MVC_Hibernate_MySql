@@ -12,10 +12,12 @@
           xmlns:spring="http://www.springframework.org/tags"
           version="2.0">
     <center><h5><spring:message code="email.title"/></h5></center>
+    <sec:authorize access="isAnonymous()">
     <br/><center>
-    <a href="${request.getContextPath()}?locale=EN">EN</a>
-    <a href="${request.getContextPath()}?locale=ru">RU</a></center>
+    <a href="${request.getContextPath()}?locale=EN"><img src="https://a.radikal.ru/a26/1902/2d/62ef97892393.png" style="height: 50px"/></a>
+    <a href="${request.getContextPath()}?locale=ru"><img src="https://c.radikal.ru/c10/1902/22/5a7e47bc9f38.png" style="height: 50px"/></a></center>
     <br/>
+    </sec:authorize>
     <form id="form_input" method="post" class="signin" action="/web/login">
         <div>
             <spring:message code="register.email"/><br/>

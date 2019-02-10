@@ -1,5 +1,6 @@
 package controller;
 
+import org.springframework.beans.NotReadablePropertyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
@@ -45,57 +46,67 @@ public class HelloController {
         model.put("parts", parts);
     }
 
+    private void fillUserModel(ModelMap modelMap) {
+        User user = new User();
+        modelMap.put("user", user);
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
         fillModel(model);
-        return "welcome";
-    }
-
-    @PostMapping(value = "/addUser")
-    public String addUser(ModelMap modelMap, @Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        user.setPassword(encoder.encode(user.getPassword()));
-        user = userService.save(user);
-        modelMap.put("user", userService.get(user.getId()));
+        fillUserModel(model);
         return "welcome";
     }
 
     @RequestMapping(value = {"/login", ""}, method = RequestMethod.GET)
     public String loginPage(ModelMap model) {
         fillModel(model);
+        fillUserModel(model);
         return "login";
     }
 
     @RequestMapping(value = "/access_denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         fillModel(model);
+        fillUserModel(model);
         model.addAttribute("user", getPrincipal());
         return "errorPassword";
     }
 
-    @RequestMapping(value="/logout", method = RequestMethod.GET)
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
+        if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login";
     }
-    private String getPrincipal(){
+
+    @PostMapping(value = "/addUser")
+    public String addUser(ModelMap modelMap, @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "errorPassword";
+        }
+        user.setPassword(encoder.encode(user.getPassword()));
+        user = userService.save(user);
+        user = userService.get(user.getId());
+        modelMap.put("user", user);
+        return "welcome";
+    }
+
+    private String getPrincipal() {
         String login;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (principal instanceof UserDetails) {
-            login = ((UserDetails)principal).getUsername();
+            login = ((UserDetails) principal).getUsername();
         } else {
             login = principal.toString();
         }
         return login;
     }
 
-    @org.springframework.web.bind.annotation.ExceptionHandler
+    @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         System.out.println("Spring MVC Handler");
         ModelAndView mav = new ModelAndView();
