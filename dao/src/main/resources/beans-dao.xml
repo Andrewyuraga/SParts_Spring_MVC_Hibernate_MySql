@@ -13,7 +13,7 @@
         <property name="url" value="jdbc:mysql://localhost:3306/SParts?createDatabaseIfNotExist=true"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="root"/>
-        <property name="password" value="lws47823"/>
+        <property name="password" value=""/>
         <property name="initialSize" value="5"/>
         <property name="maxTotal" value="20"/>
     </bean>
@@ -28,7 +28,7 @@
                 <!--<prop key="url">jdbc:mysql://localhost:3306/SParts?createDatabaseIfNotExist=true-->
                 <!--</prop>-->
                 <!--<prop key="user">root</prop>-->
-                <!--<prop key="password">lws47823</prop>-->
+                <!--<prop key="password"></prop>-->
             <!--</props>-->
         <!--</property>-->
     <!--</bean>-->
